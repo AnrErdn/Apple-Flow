@@ -6,6 +6,9 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
+
+  
   theme: {
   	extend: {
   		borderRadius: {
@@ -64,7 +67,10 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
-  		}
+  		},
+      fontFamily: {
+        sans: ['"SF Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
   	}
   },
   plugins: [require("tailwindcss-animate")],

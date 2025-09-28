@@ -2,5 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    font-family: "SF Pro", -apple-system, system-ui, sans-serif;
+  }
+}
 
+#__next-build-watcher,
+.nextjs-portal {
+  display: none !important;
+}
 
