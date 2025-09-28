@@ -1,6 +1,7 @@
 import React from 'react';
 import '@/app/style/global.css';
 import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
 
 
 export default function RootLayout({
@@ -10,9 +11,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className='flex'>
         <Sidebar />
-        {children}
+        <div className="flex-1 flex flex-col">  
+          <Navbar />                            
+          <main>{children}</main>              
+        </div>
       </body>
     </html>
   );
