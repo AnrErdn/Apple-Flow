@@ -5,6 +5,7 @@ import Add from "@/app/components/Add";
 import Remained from "@/app/components/Remained";
 import Ordered from "@/app/components/Ordered";
 import Filter from "@/app/components/Filter";
+import List from "@/app/components/List";
 
 export default function ProductsPage() {
   return (
@@ -23,14 +24,19 @@ export default function ProductsPage() {
           </div>
       </div>
       
-      <div className="mt-[55px] flex items-center justify-between pr-[24px]">
-        <h1 className="text-[24px] font-semibold">List</h1>
-        <div className="flex gap-[12px]">
-          <SearchList/>
-          <Add/>
-          <Ordered/>
-          <Remained/>
-          <Filter/>
+      <div className="mt-[55px] flex items-center justify-between pr-[24px] flex-col space-y-[16px]">
+        <div className="w-full flex items-center justify-between">
+            <h1 className="text-[24px] font-semibold">List</h1>
+            <div className="flex gap-[12px]">
+              <SearchList/>
+              <Add/>
+              <Ordered/>
+              <Remained/>
+              <Filter/>
+            </div>
+        </div>
+        <div className="w-full">
+          <List/>
         </div>
       </div>
     </div>
