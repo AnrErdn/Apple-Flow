@@ -40,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ userStatus = 'online', userName = 'An
     };
         return (
             <aside className="bg-white text-[#1d1d1f] 
-                            w-full sm:w-64 md:w-72 lg:w-80 xl:w-[288px] 
+                            w-[288px] sm:w-64 md:w-72 lg:w-80 xl:w-[288px] 
                             min-h-screen h-full 
                             border-r-2 border-[#D2D2D7] 
                             flex justify-between flex-col
