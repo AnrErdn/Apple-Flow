@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import ProductCard from "@/app/components/ProductCard";
 import SearchList from "@/app/components/SearchList";
@@ -9,11 +11,26 @@ import List from "@/app/components/List";
 
 export default function ProductsPage() {
   return (
-    <div className="pl-[48px] pt-[24px] bg-[#F2F2F7] min-h-screen w-full overflow-hidden">
+    <div className="pl-[48px] pt-[24px] bg-[#F2F2F7] min-h-screen pr-[48px]">
       <div>
           <h1 className="text-[24px] font-semibold">Products</h1>
-          <div className="flex gap-[16px] overflow-x-auto mt-[24px] pb-4 pr-[48px]">
-            <div className="flex gap-[16px] flex-shrink-0 w-full">
+          <div className="mt-[24px]">
+            <div 
+              className="flex gap-[16px] overflow-x-auto pb-4"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              <style jsx>{`
+                div::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
               <ProductCard />
               <ProductCard />
               <ProductCard />
@@ -21,10 +38,18 @@ export default function ProductsPage() {
               <ProductCard />
               <ProductCard />
             </div>
+            <div className="flex justify-end mt-[16px]">
+              <a 
+                href="#" 
+                className="text-[12px] font-medium text-[#007AFF] underline"
+              >
+                Show more
+              </a>
+            </div>
           </div>
       </div>
       
-      <div className="mt-[55px] flex items-center justify-between pr-[24px] flex-col space-y-[16px]">
+      <div className="mt-[55px] flex items-center justify-between flex-col space-y-[16px] pb-[48px]">
         <div className="w-full flex items-center justify-between">
             <h1 className="text-[24px] font-semibold">List</h1>
             <div className="flex gap-[12px]">

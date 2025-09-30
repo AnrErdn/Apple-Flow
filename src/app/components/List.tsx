@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import AddMore from "@/app/components/AddMore";
@@ -7,7 +7,6 @@ import DeleteButton from "@/app/components/Delete";
 import Warning from "./icons/warning";
 
 const ProductTable = () => {
-  // Sample data - set to empty array to see empty state
   const [products, setProducts] = useState([
     {
       id: "#021",
@@ -79,31 +78,40 @@ const ProductTable = () => {
   };
 
   return (
-          <div className="bg-white rounded-[12px] overflow-hidden w-full">
+    <div className="w-full overflow-x-auto" style={{
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none',
+    }}>
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+      <div className="bg-white rounded-[12px] overflow-hidden" style={{ minWidth: "1080px" }}>
+        {/* Header Row */}
+        <div className="flex items-center bg-white border-b border-[#d2d2d7]" style={{ height: "48px" }}>
+          <div style={{ width: "24px" }}></div>
+          <div style={{ width: "50px" }}></div>
+          <div style={{ width: "30px" }}></div>
+          <div style={{ width: "80px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>ID</div>
+          <div style={{ width: "150px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>Name</div>
+          <div style={{ width: "130px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>Status</div>
+          <div style={{ width: "80px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>Sold</div>
+          <div style={{ width: "80px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>Stock</div>
+          <div style={{ width: "320px", fontSize: "14px", color: "#6E6E73", fontWeight: "500" }}>Description</div>
+        </div>
+
         {products.length === 0 ? (
           <div className="flex items-center justify-center py-20">
             <p className="text-gray-500 text-lg">No items</p>
           </div>
         ) : (
           <>
-            {/* Header Row */}
-            <div className="flex items-center bg-white border-b border-gray-200" style={{ height: "48px" }}>
-              <div style={{ width: "24px" }}></div>
-              <div style={{ width: "50px" }}></div>
-              <div style={{ width: "30px" }}></div>
-              <div style={{ width: "80px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>ID</div>
-              <div style={{ width: "150px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>Name</div>
-              <div style={{ width: "130px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>Status</div>
-              <div style={{ width: "80px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>Sold</div>
-              <div style={{ width: "80px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>Stock</div>
-              <div style={{ width: "320px", fontSize: "14px", color: "#8E8E93", fontWeight: "500" }}>Description</div>
-            </div>
-
             {/* Product Rows */}
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className="flex items-center border-b border-gray-200 last:border-b-0"
+                className="flex items-center border-b border-[#d2d2d7] last:border-b-0"
                 style={{ height: "82px" }}
               >
                 {/* Left padding */}
@@ -142,7 +150,7 @@ const ProductTable = () => {
                       marginRight: "4px"
                     }}
                   />
-                  <span style={{ color: "#1D1D1F", fontSize: "14px", fontWeight: "500" }}>
+                  <span style={{ color: "#1D1D1F", fontSize: "14px", fontWeight: "500"}}>
                     {product.status}
                   </span>
                 </div>
@@ -153,13 +161,13 @@ const ProductTable = () => {
                 </div>
 
                 {/* Stock */}
-                <div style={{ width: "80px", color: "#1D1D1F", fontSize: "14px", fontWeight: "500"  }}>
+                <div style={{ width: "80px", color: "#1D1D1F", fontSize: "14px", fontWeight: "500" }}>
                   {product.stock}
                 </div>
 
                 {/* Description */}
                 <div className="flex items-center" style={{ width: "320px" }}>
-                  <span className="truncate" style={{ color: "#1D1D1F", fontSize: "14px", fontWeight: "500"  }}>
+                  <span className="truncate" style={{ color: "#1D1D1F", fontSize: "14px", fontWeight: "500", maxWidth: "280px" }}>
                     {product.description}
                   </span>
                   {product.status === "Sold out" && (
@@ -170,7 +178,7 @@ const ProductTable = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-2 ml-auto" style={{ paddingRight: "24px", fontWeight: "500"  }}>
+                <div className="flex items-center gap-2 ml-auto" style={{ paddingRight: "24px" }}>
                   <AddMore />
                   <Change />
                   <DeleteButton />
@@ -180,6 +188,7 @@ const ProductTable = () => {
           </>
         )}
       </div>
+    </div>
   );
 };
 
